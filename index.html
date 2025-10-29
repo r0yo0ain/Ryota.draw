@@ -37,8 +37,10 @@
       height: 240px;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 0.8s;
+      transition: transform 0.8s ease;
       cursor: pointer;
+      transform-origin: center center; /* ← 回転の軸を中央に固定 */
+      margin: 0 auto; /* ← 中央配置 */
     }
 
     .card.is-flipped {
@@ -52,6 +54,8 @@
       border-radius: 8px;
       backface-visibility: hidden;
       object-fit: cover;
+       top: 0;
+      left: 0;
     }
 
     .card .back {
