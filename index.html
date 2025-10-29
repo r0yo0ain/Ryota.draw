@@ -2,17 +2,19 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ★ スマホ対応 -->
   <title>image track</title>
   <style>
      body {
       font-family: sans-serif;
       text-align: center;
-      background-image: url("fukuro3.jpeg"); /* 背景画像を指定 */
+      background-image: url("fukuro3.jpeg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       color: white;
       padding-top: 100px;
+      margin: 0;
     }
 
     .track {
@@ -24,12 +26,13 @@
       width: 320px;
       margin-left: auto;
       margin-right: auto;
-      perspective: 1000px; /* ← 3D効果の奥行き */
+      perspective: 1000px;
     }
 
     h1 {
       margin-bottom: 50px;
       text-shadow: 0 0 8px rgba(0,0,0,0.5);
+      font-size: 2em;
     }
 
     .card {
@@ -39,8 +42,8 @@
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
       cursor: pointer;
-      transform-origin: center center; /* ← 回転の軸を中央に固定 */
-      margin: 0 auto; /* ← 中央配置 */
+      transform-origin: center center;
+      margin: 0 auto;
     }
 
     .card.is-flipped {
@@ -54,12 +57,40 @@
       border-radius: 8px;
       backface-visibility: hidden;
       object-fit: cover;
-       top: 0;
+      top: 0;
       left: 0;
     }
 
     .card .back {
       transform: rotateY(180deg);
+    }
+
+    /* ★ スマホ用レイアウト調整 */
+    @media (max-width: 600px) {
+      body {
+        padding-top: 60px;
+        font-size: 0.9em;
+      }
+
+      h1 {
+        font-size: 1.6em;
+        margin-bottom: 30px;
+      }
+
+      .track {
+        width: 90%;            /* ★ スマホでは横幅を広げて自然に */
+        margin-bottom: 25px;
+      }
+
+      .card {
+        width: 100%;           /* ★ 画面幅に合わせる */
+        height: auto;          /* ★ アスペクト比維持用に調整 */
+        aspect-ratio: 4 / 3;   /* ★ 画像比率を固定 */
+      }
+
+      .card img {
+        border-radius: 10px;
+      }
     }
   </style>
 </head>
