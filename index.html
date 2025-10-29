@@ -17,14 +17,14 @@
 
     .track {
       margin-bottom: 40px;
-      background: rgba(0, 0, 0, 0); /* 半透明の黒背景（可読性向上） */
+      background: rgba(0, 0, 0, 0);
       display: block;
       padding: 10px 15px;
       border-radius: 12px;
-      width: 320px; /* コンテンツの幅を揃える */
+      width: 320px;
       margin-left: auto;
       margin-right: auto;
-      perspective: 1000px; /* ← 3D効果の奥行きを追加 */
+      perspective: 1000px; /* ← 3D効果の奥行き */
     }
 
     h1 {
@@ -32,29 +32,17 @@
       text-shadow: 0 0 8px rgba(0,0,0,0.5);
     }
 
-    h2 {
-      font-size: 10px;
-      margin-bottom: 10px;
-    }
-
-    img {
-      width: 320px;
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto;
-    }
-
     .card {
       width: 320px;
       height: 240px;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 0.8s; /* ← 回転アニメーションの速度 */
+      transition: transform 0.8s;
       cursor: pointer;
     }
 
     .card.is-flipped {
-      transform: rotateY(180deg); /* ← クリックで180度回転 */
+      transform: rotateY(180deg);
     }
 
     .card img {
@@ -62,12 +50,12 @@
       width: 100%;
       height: 100%;
       border-radius: 8px;
-      backface-visibility: hidden; /* ← 背面非表示 */
-      object-fit: cover; /* ← アスペクト比維持でフィット */
+      backface-visibility: hidden;
+      object-fit: cover;
     }
 
     .card .back {
-      transform: rotateY(180deg); /* ← 裏面の画像を反対側に配置 */
+      transform: rotateY(180deg);
     }
   </style>
 </head>
@@ -75,30 +63,27 @@
   <h1>drawing</h1>
 
   <div class="track">
-   <div class="card">
-    <h2></h2>
-    <img src="daw1.jpeg" alt="front" loading="lazy">
-    <img src="daw7.jpeg" alt="back" class="back" loading="lazy">
+    <div class="card">
+      <img src="daw1.jpeg" alt="front" loading="lazy">
+      <img src="daw7.jpeg" alt="back" class="back" loading="lazy">
     </div>
   </div>
 
-   <div class="track">
-   <div class="card">
-    <h2></h2>
-    <img src="daw2.jpeg" alt="front" loading="lazy">
-    <img src="daw4.jpeg" alt="back" class="back" loading="lazy">
+  <div class="track">
+    <div class="card">
+      <img src="daw2.jpeg" alt="front" loading="lazy">
+      <img src="daw4.jpeg" alt="back" class="back" loading="lazy">
     </div>
   </div>
 
- <div class="track">
-   <div class="card">
-    <h2></h2>
-    <img src="daw3.jpeg" alt="front" loading="lazy">
-    <img src="daw5.jpeg" alt="back" class="back" loading="lazy">
+  <div class="track">
+    <div class="card">
+      <img src="daw3.jpeg" alt="front" loading="lazy">
+      <img src="daw5.jpeg" alt="back" class="back" loading="lazy">
     </div>
-  </div
+  </div>
 
-    <script>
+  <script>
     // クリックされたカードを反転
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
@@ -106,7 +91,5 @@
       });
     });
   </script>
-
 </body>
-
 </html>
