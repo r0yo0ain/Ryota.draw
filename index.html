@@ -24,6 +24,7 @@
       width: 320px; /* コンテンツの幅を揃える */
       margin-left: auto;
       margin-right: auto;
+      perspective: 1000px; /* ← 3D効果の奥行きを追加 */
     }
 
     h1 {
@@ -42,26 +43,70 @@
       display: block;
       margin: 0 auto;
     }
+
+    .card {
+      width: 320px;
+      height: 240px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s; /* ← 回転アニメーションの速度 */
+      cursor: pointer;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg); /* ← クリックで180度回転 */
+    }
+
+    .card img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      backface-visibility: hidden; /* ← 背面非表示 */
+      object-fit: cover; /* ← アスペクト比維持でフィット */
+    }
+
+    .card .back {
+      transform: rotateY(180deg); /* ← 裏面の画像を反対側に配置 */
+    }
   </style>
 </head>
 <body>
   <h1>drawing</h1>
 
   <div class="track">
+   <div class="card">
     <h2></h2>
-    <img src="daw1.jpeg" loading="lazy">
-  </div>
-
-  <div class="track">
-    <h2></h2>
-    <img src="daw2.jpeg" loading="lazy">
+    <img src="daw1.jpeg" alt="front" loading="lazy">
+    <img src="daw7.jpeg" alt="back" class="back" loading="lazy">
+    </div>
   </div>
 
    <div class="track">
+   <div class="card">
     <h2></h2>
-    <img src="daw3.jpeg" loading="lazy">
+    <img src="daw2.jpeg" alt="front" loading="lazy">
+    <img src="daw4.jpeg" alt="back" class="back" loading="lazy">
+    </div>
   </div>
 
+ <div class="track">
+   <div class="card">
+    <h2></h2>
+    <img src="daw3.jpeg" alt="front" loading="lazy">
+    <img src="daw5.jpeg" alt="back" class="back" loading="lazy">
+    </div>
+  </div
 
+    <script>
+    // クリックされたカードを反転
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('is-flipped');
+      });
+    });
+  </script>
+
+</body>
 
 </html>
